@@ -1,0 +1,4 @@
+/home/shashank/code/algo/hackerrank/trie/contacts.c:6:24: fatal error: bits/stdc++.h: No such file or directory
+ #include<bits/stdc++.h>
+                        ^
+compilation terminated.
