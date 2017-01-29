@@ -1,5 +1,11 @@
+// C++ program to find maximum achievable value
+// with a knapsack of weight W and multiple
+// instances allowed.
 #include<bits/stdc++.h>
 using namespace std;
+
+// Returns the maximum value with knapsack of
+// W capacity
 int unboundedKnapsack(int W, int n, int val[], int wt[])
 {
     // dp[i] is going to store maximum value
@@ -17,27 +23,25 @@ int unboundedKnapsack(int W, int n, int val[], int wt[])
 
     return dp[W];
 }
+
+// Driver program
 int main()
 {
-  int t;
-  cin>>t;
-  while(t--)
-  {
-    int n,m;
-    cin>>n>>m;
-    vector<int>a(n);
-    vector<int>b(m);
+    int w;
+    int n;
+    cin>>n;
+    int wt[n],val[n];
     for(int i=0;i<n;i++)
     {
-      cin>>a[i];
+      cin>>val[i];
     }
-    for(int i=0;i<m;i++)
-      cin>>b[i];
-    set< int >c (a.begin(),a.end());
-    c.insert(b.begin(),b.end());
-    int len = c.size();
-    c.clear();
-    cout<<(n+m-len)<<endl;
+    for(int i=0;i<n;i++)
+    {
+      cin>>wt[i];
+    }
+    int W;
+    cin>>W;
+    cout << unboundedKnapsack(W, n, val, wt);
 
-  }
+    return 0;
 }

@@ -1,5 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
+long long dp[200005];
+void unboundedKnapsack(long long price[],long long  int length[], long long n)
+{
+    long long int ans = 0;
+
+    // Fill dp[] using above recursive formula
+    for (long long int i=0; i<=200005; i++){
+      for (long long int j=0; j<n; j++){
+         if (length[j] <= i){
+            dp[i] = min(dp[i], dp[i-length[j]]+price[j]);}
+        else{
+          dp[i] = min(dp[i],price[j]);}}
+          cout<<dp[i]<<endl;
+        }
+}
+
 int main()
 {
   long long int t;
@@ -20,12 +36,11 @@ int main()
     }
     long long int m;
     cin>>m;
-    vector< pair<long long int,long long int> >cost;
-    for(long long int i=0;i<m;i++)
+    long long int price[m];
+    long long int length[m];
+    for(long long int  i=0;i<m;i++)
     {
-      long long int p,l;
-      cin>>p>>l;
-      cost.push_back(make_pair(p,l));
+      ans+=dp[i];
     }
 long long int dist;
     for(long long int i=0;i<n-1;i++){
@@ -34,25 +49,11 @@ long long int dist;
           }
           dist=ceil(sqrt(pow(a[0].first-a[n-1].first,2)+pow(a[0].second-a[n-1].second,2)));
         side.push_back(dist);
-
+    unboundedKnapsack(price,length,m);
     long long ans =0;
     for(long long int i=0;i<n;i++)
     {
-      //cout<<side[i]<<endl;
-      long long cheap = LONG_LONG_MAX;
-      for(long long int j=0;j<m;j++)
-      {
-
-          long long int tot = (side[i]/cost[j].first);
-          if(side[i]%cost[j].first!=0)
-          {
-            tot+= 1;
-          }
-          tot*=cost[j].second;
-          cheap= min(cheap,tot);
-          //cout<<side[i]<<" "<<tot<<" "<<cheap[i]<<endl;
-      }
-      ans+=cheap;
+      ans+= dp[side[i]];
     }
     cout<<ans<<endl;
 
