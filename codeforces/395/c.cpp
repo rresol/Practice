@@ -1,60 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
-vector<int>dp(2*100005,-1);
-vector<int>a[2*100005];
-int color[2*100005];
-
-int dfs(int i)
-{
-  visited[i] = true;
-  int ans =1;
-  for(int j=0;i<a[j].size();j++)
-  {
-    if(!visited[a[i][j]])
-    {
-      ans &= (color[i]==color[j])&dfs(a[i][j]);
-    }
-  }
-}
+int d[100010],e;
+int a[100010],b[100010],c[100010];
 int main()
 {
   int n;
-  cin>>n;
-  for(int i=0;i<n-1;i++)
+  scanf("%d",&n);
+  for(int i=1;i<n;i++)
   {
-    int u,v;
-    cin>>u>>v;
-    a[u].push_back(v);
-    a[v].push_back(u);
+    scanf("%d%d",&a[i],&b[i]);
   }
-  for(int i=1;i<n+1;i++)
+  for(int i=1;i<=n;i++)
   {
-    cin>>color[i];
-    //cout<<color[i]<<endl;
+    scanf("%d",&c[i]);
   }
-  int ans;
-  int i;
-  for(i=1;i<=n;i++)
+  for(int i=1;i<n;i++)
   {
-
-     ans=1;
-    for(int j=0;j<a[i].size();j++)
-    {
-      if(a[i][j]!=i){
-        //cout<<a[i][j]<<endl;
-      ans &= (val(a[i][j],-1));}
+    if(c[a[i]]!=c[b[i]]){
+      d[a[i]]++;
+      d[b[i]]++;
+      e++;
     }
-    //cout<<ans<<endl;
-    if(ans==1)
-      break;
   }
-  if(ans==1)
+  for(int i=1;i<=n;i++)
   {
-    cout<<"YES"<<endl;
-    cout<<i<<endl;
+    if(d[i]==e){
+      printf("YES\n%d\n",i);
+      return 0;
+    }
   }
-  else
-  {
-    cout<<"NO"<<endl;
-  }
+  printf("NO\n");
+  return 0;
+
 }
