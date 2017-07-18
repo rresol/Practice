@@ -1,28 +1,55 @@
 #include<bits/stdc++.h>
 using namespace std;
-int a[200005];
 int main()
 {
-  int n;
-  cin>>n;
-  int cou=0;
-  int max_cou = 0;
-  for(int i=0;i<(2*n);i++)
+  int l;
+  cin>>l;
+  string s;
+  cin>>s;
+  vector<int>ans;
+  int count =0;
+  bool flag ;
+  int no_of_zeros = 0;
+  for(int i=0;i<s.size();i++)
   {
-    int b;
-    cin>>b;
-    if(a[b])
+    if(s[i]=='1')
     {
-      cou--;
+      if(flag==true)
+      {
+        for(int i=0;i<no_of_zeros;i++)
+        {
+          ans.push_back(0);
+        }
+        flag = false;
+        no_of_zeros  = 0;
+      }
+      flag = false;
+      count++;
     }
-    else
-    {
-      cou++;
+    else{
+      if(!flag){
+      ans.push_back(count);
+      flag = true;
+      count =0;}
+      else{
+
+        no_of_zeros ++;
+      }
     }
-    //cout<<cou<<endl;
-    max_cou = max(cou,max_cou);
-    a[b]++;
   }
-  cout<<max_cou<<endl;
-  return 0;
+  if(!flag)
+  {
+    ans.push_back(count);
+  }
+  else
+  {
+    for(int i=0;i<no_of_zeros;i++)
+    {
+      ans.push_back(0);
+    }
+  }
+  for(int i=0;i<ans.size();i++)
+  {
+    cout<<ans[i];
+  }
 }
