@@ -1,0 +1,7 @@
+/home/shashank/code/algo/codeforces/contest/mtrxmod.cpp: In function ‘int main()’:
+/home/shashank/code/algo/codeforces/contest/mtrxmod.cpp:22:13: error: ‘a’ was not declared in this scope
+   int c = k-a[n-3][n-2];
+             ^
+/home/shashank/code/algo/codeforces/contest/mtrxmod.cpp:29:18: error: ‘j’ was not declared in this scope
+     cout<<ans[i][j]<<endl;
+                  ^
