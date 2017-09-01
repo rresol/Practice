@@ -1,0 +1,8 @@
+/home/shashank/code/algo/codeforces/419/816.cpp: In function ‘int row_wise(int, int)’:
+/home/shashank/code/algo/codeforces/419/816.cpp:25:32: error: ‘to_string’ was not declared in this scope
+       s.push_back(to_string(i+1));
+                                ^
+/home/shashank/code/algo/codeforces/419/816.cpp: In function ‘int col_wise(int, int)’:
+/home/shashank/code/algo/codeforces/419/816.cpp:50:32: error: ‘to_string’ was not declared in this scope
+       s.push_back(to_string(j+1));
+                                ^
