@@ -11,11 +11,31 @@ int solve()
       if(i==0)
       {
         workout[i][j] = workout[i][j-1]+a[i][j];
+        continue;
       }
       if(j==0)
       {
         workout[i][j] = workout[i-1][j]+a[i][j];
+        continue;
       }
+      workout[i][j] = max(workout[i-1][j],workout[i][j-1]) + a[i][j];
+    }
+  }
+  for(int i=1;i<n;i++)
+  {
+    for(int j=0;j<m;j++)
+    {
+      if(i==0)
+      {
+        workout[i][j] = workout[i][j-1]+a[i][j];
+        continue;
+      }
+      if(j==0)
+      {
+        workout[i][j] = workout[i-1][j]+a[i][j];
+        continue;
+      }
+      workout[i][j] = max(workout[i-1][j],workout[i][j-1]) + a[i][j];
     }
   }
 }

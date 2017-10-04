@@ -1,0 +1,7 @@
+/home/shashank/code/algo/codeforces/b.cpp: In function ‘int main()’:
+/home/shashank/code/algo/codeforces/b.cpp:24:4: error: expected ‘;’ before numeric constant
+ -1 2 10 -10 3
+    ^
+/home/shashank/code/algo/codeforces/b.cpp:30:44: error: expected primary-expression before ‘)’ token
+     sort(neg.begin(),neg.end(),greater<int>);
+                                            ^

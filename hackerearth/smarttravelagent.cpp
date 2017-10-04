@@ -2,7 +2,26 @@
 using namespace std;
 vector<pair<int,int> >nodes[10005];
 bool visited[100005];
-int path[100005];
+vector<int>path;
+int dist[]
+
+int dfs(int s, int d)
+{
+
+
+  for(int i=0;i<nodes[v].size();i++)
+  {
+    if(!visited[nodes[v][i]])
+    {
+      int capacity = min(dist[u],edge[u][v]);
+      if(nodes[v][i]==d)
+      {
+        dist[v] = dist[nodes[v][i]];
+      }
+    }
+  }
+}
+
 
 int main()
 {
